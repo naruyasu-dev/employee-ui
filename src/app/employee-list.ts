@@ -51,11 +51,7 @@ export class EmployeeListComponent implements OnInit {
   add(): void {
     this.employeeService.addEmployee(this.newEmployee).subscribe(() => {
       this.loadEmployees();
-      this.newEmployee = {
-        id: 0,
-        name: '',
-        department: ''
-      };
+      this.newEmployee = { id: 0, name: '', department: '' };
     });
   }
 
