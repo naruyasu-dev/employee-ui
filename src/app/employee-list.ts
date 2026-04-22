@@ -15,7 +15,10 @@ import { Employee } from './employee';
       ID: <input type="number" [(ngModel)]="newEmployee.id">
       名前: <input type="text" [(ngModel)]="newEmployee.name">
       部署: <input type="text" [(ngModel)]="newEmployee.department">
-      <button (click)="add()">追加</button>
+
+      <button (click)="save()">
+        {{ newEmployee.id ? '更新' : '追加' }}
+      </button>
     </div>
 
     <ul>
@@ -49,11 +52,20 @@ export class EmployeeListComponent implements OnInit {
     });
   }
 
-  add(): void {
-    this.employeeService.addEmployee(this.newEmployee).subscribe(() => {
-      this.loadEmployees();
-      this.newEmployee = { id: 0, name: '', department: '' };
-    });
+  save(): void {
+    if (this.newEmployee.id) {
+      // 更新
+      this.employeeService.updateEmployee(this.newEmployee).subscribe(() => {
+        this.loadEmployees();
+        this.reset();
+      });
+    } else {
+      // 追加
+      this.employeeService.addEmployee(this.newEmployee).subscribe(() => {
+        this.loadEmployees();
+        this.reset();
+      });
+    }
   }
 
   edit(emp: Employee): void {
@@ -64,5 +76,13 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.deleteEmployee(id).subscribe(() => {
       this.loadEmployees();
     });
+  }
+
+  reset(): void {
+    this.newEmployee = {
+      id: 0,
+      name: '',
+      department: ''
+    };
   }
 }

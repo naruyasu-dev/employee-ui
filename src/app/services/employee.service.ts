@@ -24,4 +24,13 @@ export class EmployeeService {
   deleteEmployee(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+
+  updateEmployee(employee: Employee): Observable<Employee> {
+    return this.http.put<Employee>(
+      `${this.apiUrl}/${employee.id}`,
+      employee
+    );
+  }
+
 }
