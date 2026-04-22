@@ -21,6 +21,7 @@ import { Employee } from './employee';
     <ul>
       <li *ngFor="let emp of employees">
         {{ emp.id }} / {{ emp.name }} / {{ emp.department }}
+        <button (click)="delete(emp.id)">削除</button>
       </li>
     </ul>
   `
@@ -55,6 +56,12 @@ export class EmployeeListComponent implements OnInit {
         name: '',
         department: ''
       };
+    });
+  }
+
+  delete(id: number): void {
+    this.employeeService.deleteEmployee(id).subscribe(() => {
+      this.loadEmployees();
     });
   }
 }
