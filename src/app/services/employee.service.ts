@@ -8,7 +8,6 @@ import { Employee } from '../employee';
 })
 export class EmployeeService {
 
-  // ★ここが最重要
   private apiUrl = 'http://localhost:8080/employee-api/employees';
 
   constructor(private http: HttpClient) { }
