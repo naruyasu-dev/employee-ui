@@ -1,43 +1,64 @@
 import { Component } from '@angular/core';
-import { EmployeeListComponent } from './employee-list';
+import { RouterOutlet, RouterLink } from '@angular/router';
 
 /**
  * アプリケーションのルートコンポーネント
  *
- * ・Angularアプリの最上位
- * ・画面の入口になるコンポーネント
- * ・ここから各機能コンポーネントを読み込む
+ * ・Angularアプリの最上位コンポーネント
+ * ・画面全体の外枠になる
+ * ・URLに応じて表示する画面を切り替える
  */
 @Component({
   /**
-   * HTMLタグ名
-   *
-   * index.html で使用される
-   * 例:
-   * <app-root></app-root>
+   * index.html の <app-root></app-root> と対応する
    */
   selector: 'app-root',
 
   /**
-   * standaloneコンポーネント設定
-   *
-   * ・NgModule不要で動作する（Angularの新しい書き方）
+   * standalone コンポーネントとして使用する
    */
   standalone: true,
 
   /**
-   * このコンポーネントで使用する子コンポーネント
+   * このコンポーネントのテンプレート内で使用する機能を登録する
    *
-   * ・EmployeeListComponent を読み込む
+   * RouterOutlet:
+   * ・URLに対応したコンポーネントを表示する場所
+   *
+   * RouterLink:
+   * ・Angular の画面遷移リンクを使うための機能
    */
-  imports: [EmployeeListComponent],
+  imports: [RouterOutlet, RouterLink],
 
   /**
-   * テンプレート（HTML）
+   * App コンポーネントの画面
    *
-   * ・EmployeeListComponent を表示するだけのシンプル構成
+   * ここでは、社員一覧画面を直接表示しない
+   * <router-outlet> の場所に、URLに応じた画面が表示される
    */
-  template: `<app-employee-list></app-employee-list>`
+  template: `
+    <h1>employee-ui</h1>
+
+    <nav>
+      <a routerLink="/">トップ</a>
+      |
+      <a routerLink="/employees">社員一覧</a>
+      |
+      <a routerLink="/about">このアプリについて</a>
+    </nav>
+
+    <hr>
+
+    <!--
+      ここに、URLに対応したコンポーネントの template が表示される
+
+      例:
+      /           → HomeComponent
+      /employees  → EmployeeListComponent
+      /about      → AboutComponent
+    -->
+    <router-outlet></router-outlet>
+  `
 })
-export class App {
+export class Application {
 }

@@ -1,68 +1,21 @@
 <!doctype html>
-<!--
-  HTML5の宣言
-  ・ブラウザに「HTML5として解釈してね」と伝える
--->
-
-<html lang="ja" data-beasties-container>
-<!--
-  lang="en"
-  ・ページの言語（英語）※日本語なら ja にしてもOK
-
-  data-beasties-container
-  ・Angular内部で付与される属性（基本気にしなくてOK）
--->
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <!--
-    文字コード（UTF-8）
-  -->
-
   <title>EmployeeUi</title>
+
   <!--
-    ブラウザのタブに表示されるタイトル
+    Angular の基準URL
+
+    ng serve で localhost:4200 を使う場合は "/" にする
+    "/employee-ui/" にすると、
+    http://localhost:4200/employee-ui/... を探しに行ってしまう
   -->
-
-  <base href="/employee-ui/">
-  <!-- ⭐超重要
-    ・アプリのルートパス
-    ・すべての相対URLの基準になる
-
-    今の構成：
-    http://localhost:8080/employee-ui/
-
-    👉 これに合わせている
-  -->
+  <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--
-    レスポンシブ対応（スマホ表示）
-  -->
-
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!--
-    タブのアイコン
-  -->
-
-  <link rel="stylesheet" href="styles-5INURTSO.css">
-  <!--
-    ビルドで生成されたCSS
-    ・ファイル名にハッシュが付く（キャッシュ対策）
-  -->
 </head>
-
 <body>
   <app-root></app-root>
-  <!-- ⭐最重要
-    Angularの描画先（ルートコンポーネント）
-  -->
-
-  <script src="main-WOFSZSOK.js" type="module"></script>
-  <!-- ⭐最重要
-    Angularアプリ本体（ビルド結果）
-    ・ここから main.ts が実行される
-    ・Appが起動する
-  -->
 </body>
 </html>

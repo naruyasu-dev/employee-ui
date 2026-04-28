@@ -8,8 +8,7 @@ import { Employee } from '../employee';
 })
 export class EmployeeService {
 
-//  private apiUrl = 'http://localhost:8080/employee-api/employees';
-  private apiUrl = '/employee-api/employees';
+  private apiUrl = 'http://localhost:8080/employee-api/employees';
 
   constructor(private http: HttpClient) { }
 
@@ -25,12 +24,10 @@ export class EmployeeService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-
   updateEmployee(employee: Employee): Observable<Employee> {
     return this.http.put<Employee>(
       `${this.apiUrl}/${employee.id}`,
       employee
     );
   }
-
 }
