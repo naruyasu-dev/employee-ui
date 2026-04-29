@@ -10,11 +10,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 // 社員データを取得・追加・更新・削除するサービス
-import { EmployeeService } from './services/employee.service';
+import { EmployeeService } from '../services/employee.service';
 
 // Employee 型を読み込む
 // id / name / department を持つ社員データの型
-import { Employee } from './employee';
+import { Employee } from '../employee';
 
 @Component({
   // このコンポーネントを HTML で使うときのタグ名

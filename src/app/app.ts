@@ -60,5 +60,5 @@ import { RouterOutlet, RouterLink } from '@angular/router';
     <router-outlet></router-outlet>
   `
 })
-export class Application {
+export class App {
 }
