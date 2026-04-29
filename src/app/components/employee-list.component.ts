@@ -14,7 +14,7 @@ import { EmployeeService } from '../services/employee.service';
 
 // Employee 型を読み込む
 // id / name / department を持つ社員データの型
-import { Employee } from '../employee';
+import { Employee } from '../models/employee';
 
 @Component({
   // このコンポーネントを HTML で使うときのタグ名
