@@ -1,0 +1,73 @@
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+/* テーブル */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ヘッダー */
+.table thead {
+  background: #374151;
+  color: white;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+}
+
+/* 行 */
+.table tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+/* ホバー */
+.table tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* 操作 */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* 編集 */
+.btn-edit {
+  background: #3b82f6;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn-edit:hover {
+  background: #2563eb;
+}
+
+/* 削除 */
+.btn-delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+}

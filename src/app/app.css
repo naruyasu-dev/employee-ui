@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f1f5f9;
+}
+
+/* ヘッダー */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 64px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  background: linear-gradient(135deg, #6b7280, #374151);
+  color: #fff;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ロゴ */
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ナビ */
+.nav {
+  display: flex;
+  gap: 20px;   /* ← これで詰まり解消 */
+}
+
+/* リンク */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: #e5e7eb;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+/* ホバー */
+.nav-link:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+}
+
+/* 下線 */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #facc15;
+  transition: 0.3s;
+}
+
+/* ホバー時 */
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* アクティブ */
+.nav-link.active {
+  color: #facc15;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* メイン */
+.main {
+  margin-top: 80px;
+  padding: 20px;
+}

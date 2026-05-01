@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="logo">
+    🏢 Employee App
+  </div>
+
+  <nav class="nav">
+    <a routerLink="/" routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }"
+       class="nav-link">ホーム</a>
+
+    <a routerLink="/employees" routerLinkActive="active"
+       class="nav-link">社員一覧</a>
+
+    <a routerLink="/about" routerLinkActive="active"
+       class="nav-link">About</a>
+  </nav>
+</header>
+
+<main class="main">
+  <router-outlet></router-outlet>
+</main>

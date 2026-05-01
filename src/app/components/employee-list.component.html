@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>社員一覧</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>部署</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let e of employees">
+        <td>{{ e.id }}</td>
+        <td>{{ e.name }}</td>
+        <td>{{ e.department }}</td>
+        <td class="actions">
+
+          <a [routerLink]="['/employees/edit', e.id]" class="btn-edit">
+            編集
+          </a>
+
+          <button class="btn-delete" (click)="deleteEmployee(e.id)">
+            削除
+          </button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

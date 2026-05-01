@@ -1,0 +1,21 @@
+.card {
+  margin: 100px auto;
+  width: 360px;
+  padding: 32px;
+  border-radius: 16px;
+  background: white;
+  text-align: center;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  text-decoration: none;
+}
