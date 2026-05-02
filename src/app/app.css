@@ -30,6 +30,21 @@ body {
   font-weight: bold;
 }
 
+/* ロゴリンク */
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+
+  /* ★ここを変更 */
+  font-size: 24px;   /* ← 少し大きく（元20px → 24px） */
+  font-weight: bold;
+}
+
+/* ホバー */
+.logo-link:hover {
+  opacity: 0.8;
+}
+
 /* ナビ */
 .nav {
   display: flex;
