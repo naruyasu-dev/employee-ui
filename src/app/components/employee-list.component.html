@@ -1,33 +1,44 @@
-<div class="container">
-  <h2>社員一覧</h2>
+<section class="employee-page">
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>名前</th>
-        <th>部署</th>
-        <th>操作</th>
-      </tr>
-    </thead>
+  <div class="employee-card">
 
-    <tbody>
-      <tr *ngFor="let e of employees">
-        <td>{{ e.id }}</td>
-        <td>{{ e.name }}</td>
-        <td>{{ e.department }}</td>
-        <td class="actions">
+    <h2 class="page-title">社員一覧</h2>
 
-          <a [routerLink]="['/employees/edit', e.id]" class="btn-edit">
-            編集
-          </a>
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>名前</th>
+          <th>部署名</th>
+          <th>部署ID</th>
+          <th>操作</th>
+        </tr>
+      </thead>
 
-          <button class="btn-delete" (click)="deleteEmployee(e.id)">
-            削除
-          </button>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
 
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          <!-- 部署名 -->
+          <td>{{ employee.department }}</td>
+
+          <!-- 部署ID -->
+          <td>{{ employee.departmentId }}</td>
+
+          <td class="action-cell">
+            <button class="edit-button" type="button">
+              編集
+            </button>
+
+            <button class="delete-button" type="button" (click)="deleteEmployee(employee.id)">
+              削除
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</section>

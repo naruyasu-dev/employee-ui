@@ -1,73 +1,80 @@
-.container {
-  max-width: 900px;
-  margin: 40px auto;
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+.employee-page {
+  padding: 80px 36px;
+  background: #f7f8fa;
+  min-height: calc(100vh - 90px);
 }
 
-h2 {
-  margin-bottom: 20px;
+.employee-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 42px 36px 30px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* テーブル */
-.table {
+.page-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 32px;
+  color: #111827;
+}
+
+.employee-table {
   width: 100%;
   border-collapse: collapse;
+  font-size: 18px;
+  background: #ffffff;
 }
 
-/* ヘッダー */
-.table thead {
+.employee-table thead {
   background: #374151;
-  color: white;
+  color: #ffffff;
 }
 
-.table th,
-.table td {
-  padding: 12px;
+.employee-table th {
+  padding: 18px 20px;
   text-align: left;
+  font-weight: 700;
 }
 
-/* 行 */
-.table tbody tr {
-  border-bottom: 1px solid #eee;
+.employee-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #111827;
 }
 
-/* ホバー */
-.table tbody tr:hover {
-  background: #f9fafb;
+.employee-table tbody tr:hover {
+  background: #f3f4f6;
 }
 
-/* 操作 */
-.actions {
+.action-cell {
   display: flex;
-  gap: 8px;
+  gap: 12px;
 }
 
-/* 編集 */
-.btn-edit {
-  background: #3b82f6;
-  color: white;
-  padding: 6px 10px;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-.btn-edit:hover {
-  background: #2563eb;
-}
-
-/* 削除 */
-.btn-delete {
-  background: #ef4444;
-  color: white;
+.edit-button,
+.delete-button {
   border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: 700;
   cursor: pointer;
 }
 
-.btn-delete:hover {
+.edit-button {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.delete-button {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.edit-button:hover {
+  background: #2563eb;
+}
+
+.delete-button:hover {
   background: #dc2626;
 }
