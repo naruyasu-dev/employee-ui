@@ -1,40 +1,45 @@
-<section class="employee-page">
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { EmployeeService } from '../services/employee.service';
+import { Employee } from '../models/employee';
 
-  <div class="employee-card">
+@Component({
+  selector: 'app-employee-list',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './employee-list.component.html',
+  styleUrls: ['./employee-list.component.css']
+})
+export class EmployeeListComponent implements OnInit {
 
-    <h2 class="page-title">社員一覧</h2>
+  employees: Employee[] = [];
 
-    <table class="employee-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>名前</th>
-          <th>部署名</th>
-          <th>部署ID</th>
-          <th>操作</th>
-        </tr>
-      </thead>
+  constructor(private employeeService: EmployeeService) {
+  }
 
-      <tbody>
-        <tr *ngFor="let employee of employees">
-          <td>{{ employee.id }}</td>
-          <td>{{ employee.name }}</td>
-          <td>{{ employee.departmentName }}</td>
-          <td>{{ employee.departmentId }}</td>
+  ngOnInit(): void {
+    this.loadEmployees();
+  }
 
-          <td class="action-cell">
-            <button class="edit-button" type="button">
-              編集
-            </button>
+  loadEmployees(): void {
+    this.employeeService.getEmployees().subscribe({
+      next: (data) => {
+        this.employees = data;
+      },
+      error: (error) => {
+        console.error('社員一覧取得エラー', error);
+      }
+    });
+  }
 
-            <button class="delete-button" type="button" (click)="deleteEmployee(employee.id)">
-              削除
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-
-</section>
+  deleteEmployee(id: number): void {
+    this.employeeService.deleteEmployee(id).subscribe({
+      next: () => {
+        this.loadEmployees();
+      },
+      error: (error) => {
+        console.error('社員削除エラー', error);
+      }
+    });
+  }
+}

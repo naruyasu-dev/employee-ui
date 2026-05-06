@@ -19,11 +19,7 @@
         <tr *ngFor="let employee of employees">
           <td>{{ employee.id }}</td>
           <td>{{ employee.name }}</td>
-
-          <!-- department テーブルから取得した部署名 -->
           <td>{{ employee.departmentName }}</td>
-
-          <!-- employee.department_id -->
           <td>{{ employee.departmentId }}</td>
 
           <td class="action-cell">
