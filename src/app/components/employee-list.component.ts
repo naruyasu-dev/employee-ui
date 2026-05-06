@@ -1,45 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { EmployeeService } from '../services/employee.service';
-import { Employee } from '../models/employee';
+<section class="employee-page">
 
-@Component({
-  selector: 'app-employee-list',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './employee-list.component.html',
-  styleUrls: ['./employee-list.component.css']
-})
-export class EmployeeListComponent implements OnInit {
+  <div class="employee-card">
 
-  employees: Employee[] = [];
+    <h2 class="page-title">社員一覧</h2>
 
-  constructor(private employeeService: EmployeeService) {
-  }
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>名前</th>
+          <th>部署名</th>
+          <th>部署ID</th>
+          <th>操作</th>
+        </tr>
+      </thead>
 
-  ngOnInit(): void {
-    this.loadEmployees();
-  }
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.departmentName }}</td>
+          <td>{{ employee.departmentId }}</td>
 
-  loadEmployees(): void {
-    this.employeeService.getEmployees().subscribe({
-      next: (data) => {
-        this.employees = data;
-      },
-      error: (error) => {
-        console.error('社員一覧取得エラー', error);
-      }
-    });
-  }
+          <td class="action-cell">
+            <button class="edit-button" type="button">
+              編集
+            </button>
 
-  deleteEmployee(id: number): void {
-    this.employeeService.deleteEmployee(id).subscribe({
-      next: () => {
-        this.loadEmployees();
-      },
-      error: (error) => {
-        console.error('社員削除エラー', error);
-      }
-    });
-  }
-}
+            <button class="delete-button" type="button" (click)="deleteEmployee(employee.id)">
+              削除
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</section>
